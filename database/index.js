@@ -1,5 +1,5 @@
-const { Pool } = require("pg");
-const config = require("./config.js");
+const { Pool } = require('pg');
+const config = require('./config.js');
 
 const pool = new Pool({
   user: "postgres",
@@ -9,10 +9,53 @@ const pool = new Pool({
   port: 3000,
 });
 
-pool.query("SELECT NOW()", (err, res) => {
-  console.log(err, res);
-  pool.end();
-});
+//  queries ------------------------------------------------------------
 
-module.exports = pool;
+//  get questions ----------------------------------
+const getAllQuestions = () => {
+
+  const queryString = 'QUERY STRING';
+  const params = ;
+
+  pool.query(queryString, params, (err, questionsResData) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, questionsResData);
+    }
+  });
+
+};
+
+//  add questions ----------------------------------
+
+
+
+//  get answers ----------------------------------
+const getAllAnswers = () => {
+
+  const queryString = 'QUERY STRING';
+  const params = ;
+
+  pool.query(queryString, params, (err, answersResData) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, answersResData);
+    }
+  });
+
+};
+
+//  add answers ----------------------------------
+
+
+
+//  --------------------------------------------------------------------
+
+//  exports ---------------------------------------
+
+module.exports = {
+  pool
+};
 
